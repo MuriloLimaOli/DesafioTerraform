@@ -98,7 +98,7 @@ resource "aws_vpc_security_group_ingress_rule" "ssh" {
   from_port         = 22
   to_port           = 22
   ip_protocol       = "tcp"
-  cidr_ipv4         = "0.0.0.0/0"
+  cidr_ipv6         = "0.0.0.0/0"
 }
 
 #Regra de entrada para HTTP(Nginx)
@@ -108,7 +108,7 @@ resource "aws_vpc_security_group_ingress_rule" "http" {
   from_port         = 80
   to_port           = 80
   ip_protocol       = "tcp"
-  cidr_ipv4         = "0.0.0.0/0"
+  cidr_ipv6         = "0.0.0.0/0"
 }
 
 #Regra de saída permitindo todo tráfego
@@ -118,7 +118,7 @@ resource "aws_vpc_security_group_egress_rule" "outbound" {
   from_port         = 0
   to_port           = 0
   ip_protocol       = "-1"
-  cidr_ipv4         = "0.0.0.0/0"
+  cidr_ipv6         = "0.0.0.0/0"
 }
 
 
