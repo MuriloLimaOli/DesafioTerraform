@@ -69,6 +69,9 @@ Permite que a instância EC2 receba conexões HTTP, essencial para o funcionamen
 Modificação do user data: 
 Agora, o script de inicialização da EC2 garante que o Nginx seja instalado e iniciado automaticamente ao provisionar a instância, melhorando a automação do ambiente.
 
+Armazenamento seguro da chave privada: 
+Foi adicionado o recurso local_file.private_key, que salva a chave privada gerada pelo Terraform em um arquivo local (${var.projeto}-${var.candidato}-key.pem). Isso garante que apenas o usuário proprietário possa acessá-la, aumentando a segurança do acesso à instância EC2.
+
 ## Instruções de Uso
 Instale o Terraform em seu sistema.
 Configure suas credenciais da AWS.
