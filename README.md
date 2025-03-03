@@ -1,6 +1,6 @@
 # Entrega Desafio - Infraestrutura AWS com Terraform
 ## Descrição do Código - Tarefa 1
-Este desafio utiliza Terraform para provisionar uma infraestrutura na AWS, criando uma VPC com uma sub-rede pública, um gateway de internet e regras de segurança para acesso SSH. Além disso, ele provisiona uma instância EC2 executando Debian 12, gera uma chave SSH para acesso seguro e exibe o IP público da máquina.
+Este desafio utiliza Terraform para elaborar uma infraestrutura na AWS, criando uma VPC com uma sub-rede pública, um gateway de internet e regras de segurança para acesso SSH. Além disso, ele elabora uma instância EC2 executando Debian 12, gera uma chave SSH para acesso seguro e exibe o IP público da máquina.
 
 Linha 1 / provider "aws" {}
 -O código define o provedor AWS, utilizando a região "us-east-1" para implementação;
@@ -203,11 +203,21 @@ output "ec2_public_ip" {
 ## Descrição do Código - Tarefa 2
 Adição da tag "managed-by": 
 A tag "managed-by" = "terraform" foi adicionada aos recursos para indicar que são gerenciados pelo Terraform. Isso facilita a identificação e evita conflitos de alterações manuais.
-Personalização por variável: 
+Personalização da variável candidato: 
 A variável "candidato", definida na linha 11, permite personalizar os recursos dentro do Terraform. O valor padrão era "SeuNome", mas foi atualizado para "MuriloLimadeOliveira"
+Remoção da linha de tags em aws_route_table_association: 
+Esse recurso não suporta tags, e sua remoção evita erros na execução do código.
 Ouve separação das regras de entrada e saída do aws_security_group: 
 Antes, as regras estavam dentro do próprio recurso aws_security_group. Agora, foram movidas para recursos individuais, permitindo um gerenciamento mais organizado. 
-Remoção da linha de tags em aws_route_table_association: Esse recurso não suporta tags, e sua remoção evita erros na execução do código. 
 Adição de uma regra para tráfego HTTP na porta 80: 
 Permite que a instância EC2 receba conexões HTTP, essencial para o funcionamento do Nginx. 
-Modificação do user data: Agora, o script de inicialização da EC2 garante que o Nginx seja instalado e iniciado automaticamente ao provisionar a instância, melhorando a automação do ambiente.
+Modificação do user data: 
+Agora, o script de inicialização da EC2 garante que o Nginx seja instalado e iniciado automaticamente ao provisionar a instância, melhorando a automação do ambiente.
+
+## Instruções de Uso
+Instale o Terraform em seu sistema.
+Configure suas credenciais da AWS.
+Clone este repositório e navegue até o diretório do projeto.
+Execute terraform init para inicializar o Terraform.
+Execute terraform apply e confirme a execução.
+O IP público da instância será exibido na saída do Terraform.
