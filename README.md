@@ -48,19 +48,24 @@ Linhha 155 / output "ec2_public_ip" {}
 -O output "ec2_public_ip" exibe o IP público da EC2 criada. Ele recupera o valor de aws_instance.debian_ec2.public_ip, permitindo fácil acesso ao servidor sem precisar buscar manualmente na AWS.
 
 ## Arquivo main.tf modificado
-localizado em outro arquivo do repositório para melhor vizualização.
+Localizado em outro arquivo do repositório para melhor vizualização.
 
 ## Descrição do Código - Tarefa 2
 Adição da tag "managed-by": 
 A tag "managed-by" = "terraform" foi adicionada aos recursos para indicar que são gerenciados pelo Terraform. Isso facilita a identificação e evita conflitos de alterações manuais.
+
 Personalização da variável candidato: 
 A variável "candidato", definida na linha 11, permite personalizar os recursos dentro do Terraform. O valor padrão era "SeuNome", mas foi atualizado para "MuriloLimadeOliveira"
+
 Remoção da linha de tags em aws_route_table_association: 
 Esse recurso não suporta tags, e sua remoção evita erros na execução do código.
+
 Ouve separação das regras de entrada e saída do aws_security_group: 
 Antes, as regras estavam dentro do próprio recurso aws_security_group. Agora, foram movidas para recursos individuais, permitindo um gerenciamento mais organizado. 
+
 Adição de uma regra para tráfego HTTP na porta 80: 
 Permite que a instância EC2 receba conexões HTTP, essencial para o funcionamento do Nginx. 
+
 Modificação do user data: 
 Agora, o script de inicialização da EC2 garante que o Nginx seja instalado e iniciado automaticamente ao provisionar a instância, melhorando a automação do ambiente.
 
