@@ -171,10 +171,10 @@ resource "aws_instance" "debian_ec2" {
   }
 }
 
-output "private_key" {
-  description = "Chave privada para acessar a instância EC2"
-  value       = tls_private_key.ec2_key.private_key_pem
-  sensitive   = true
+resource "local_file" "private_key" {
+  content  = tls_private_key.ec2_key.private_key_pem
+  filename = "${var.projeto}-${var.candidato}-key.pem"
+  file_permission = "0600"
 }
 
 output "ec2_public_ip" {
