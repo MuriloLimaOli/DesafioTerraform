@@ -48,7 +48,7 @@ Linhha 155 / output "ec2_public_ip" {}
 -O output "ec2_public_ip" exibe o IP público da EC2 criada. Ele recupera o valor de aws_instance.debian_ec2.public_ip, permitindo fácil acesso ao servidor sem precisar buscar manualmente na AWS.
 
 ## Arquivo main.tf modificado
-provider "aws" {
+Provider "aws" {
   region = "us-east-1"
 
 #Adicionado "managed-by"
@@ -228,6 +228,7 @@ output "ec2_public_ip" {
   description = "Endereço IP público da instância EC2"
   value       = aws_instance.debian_ec2.public_ip
 }
+
 ## Descrição do Código - Tarefa 2
 Adição da tag "managed-by": 
 A tag "managed-by" = "terraform" foi adicionada aos recursos para indicar que são gerenciados pelo Terraform. Isso facilita a identificação e evita conflitos de alterações manuais.
