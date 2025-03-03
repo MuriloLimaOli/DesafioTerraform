@@ -1,5 +1,5 @@
 # Infraestrutura AWS com Terraform
-Este projeto utiliza Terraform para provisionar uma infraestrutura na AWS, criando uma VPC com uma sub-rede pública, um gateway de internet e regras de segurança para acesso SSH. Além disso, ele provisiona uma instância EC2 executando Debian 12, gera uma chave SSH para acesso seguro e exibe o IP público da máquina.
+Este desafio utiliza Terraform para provisionar uma infraestrutura na AWS, criando uma VPC com uma sub-rede pública, um gateway de internet e regras de segurança para acesso SSH. Além disso, ele provisiona uma instância EC2 executando Debian 12, gera uma chave SSH para acesso seguro e exibe o IP público da máquina.
 ## Descrição do Código
 Linha 1 / provider "aws" {}
 -O código define o provedor AWS, utilizando a região "us-east-1" para implementação;
